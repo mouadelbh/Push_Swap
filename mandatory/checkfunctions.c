@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkerfunctions.c                                 :+:      :+:    :+:   */
+/*   checkfunctions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-bouh <mel-bouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:47:11 by mel-bouh          #+#    #+#             */
-/*   Updated: 2024/05/06 18:48:10 by mel-bouh         ###   ########.fr       */
+/*   Updated: 2024/05/18 23:53:33 by mel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	lookzero(char *s)
 {
@@ -37,7 +37,16 @@ int	ft_checkchar(char *s)
 	{
 		if (!(s[i] >= '0' && s[i] <= '9') && s[i] != 32 \
 		&& s[i] != '-' && s[i] != '+')
+		{
+			ft_printf("ERROR\n");
 			return (0);
+		}
+		if ((s[i] == '-' || s[i] == '+') && \
+		!(s[i + 1] >= '0' && s[i + 1] <= '9'))
+		{
+			ft_printf("ERROR\n");
+			return (0);
+		}
 		i++;
 	}
 	return (1);
@@ -69,15 +78,13 @@ int	ft_checknums(char **split, int counter)
 	while (i < counter)
 	{
 		if (!ft_checkchar(split[i++]))
-			return (printf("There is an imposter char among us\n"));
+			return (ft_printf("Error\n"));
 	}
 	i = 0;
 	while (i < counter)
 	{
 		if (!ft_checkint(split[i++]))
-			return (printf("A value larger than max int has been found\n"));
+			return (ft_printf("Error\n"));
 	}
 	return (0);
 }
-
-

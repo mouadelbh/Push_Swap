@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-bouh <mel-bouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:41:23 by mel-bouh          #+#    #+#             */
-/*   Updated: 2024/05/13 15:44:25 by mel-bouh         ###   ########.fr       */
+/*   Updated: 2024/05/18 17:01:55 by mel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_free(void **split, int counter)
 {
@@ -34,40 +34,11 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+long	ft_atoi(char *str)
 {
-	t_list	*node;
-
-	if (lst == NULL)
-		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	node = *lst;
-	while (node->next)
-		node = node->next;
-	node->next = new;
-}
-
-t_list	*ft_lstnew(int content)
-{
-	t_list	*node;
-
-	node = (t_list *)malloc(sizeof(t_list));
-	if (node == NULL)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
-}
-
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	number;
-	int	sign;
+	int		i;
+	long	number;
+	int		sign;
 
 	i = 0;
 	sign = 1;

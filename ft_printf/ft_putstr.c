@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-bouh <mel-bouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 16:40:33 by mel-bouh          #+#    #+#             */
-/*   Updated: 2024/05/02 20:16:08 by mel-bouh         ###   ########.fr       */
+/*   Created: 2023/11/14 20:28:16 by mel-bouh          #+#    #+#             */
+/*   Updated: 2023/12/22 19:13:40 by mel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+int	ft_putstr(char *str)
 {
+	int		count;
 	int		i;
-	int		j;
-	static int	k;
-	char	*join;
 
+	count = 0;
+	if (!str)
+	{
+		count += ft_printf("(null)");
+		return (count);
+	}
 	i = 0;
-	j = 0;
-	if (!s2)
-		return (NULL);
-	join = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
-	if (join == NULL)
-		return (NULL);
-	while (s1 && s1[i])
-		join[j++] = s1[i++];
-	i = 0;
-	if (k)
-		join[j++] = ' ';
-	while (s2[i])
-		join[j++] = s2[i++];
-	join[j] = '\0';
-	k++;
-	free(s1);
-	return (join);
+	while (str[i])
+	{
+		count += ft_putchar(str[i]);
+		i++;
+	}
+	return (count);
 }
