@@ -6,7 +6,7 @@
 /*   By: mel-bouh <mel-bouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:39:28 by mel-bouh          #+#    #+#             */
-/*   Updated: 2024/05/18 17:46:15 by mel-bouh         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:02:26 by mel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ t_list	*ft_lstnew(int content);
 t_list	*createstack(int *nums, int counter);
 size_t	ft_strlen(const char *s);
 /*------algo------*/
-// void	printstack(t_list *a, t_list *b);
 void	smallsort(t_swap *s);
 void	sortthree(t_swap *s);
 void	sortalgo(t_swap *s);

@@ -6,7 +6,7 @@
 /*   By: mel-bouh <mel-bouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:47:11 by mel-bouh          #+#    #+#             */
-/*   Updated: 2024/05/18 23:53:33 by mel-bouh         ###   ########.fr       */
+/*   Updated: 2024/05/20 22:05:37 by mel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int	ft_checkchar(char *s)
 		if (!(s[i] >= '0' && s[i] <= '9') && s[i] != 32 \
 		&& s[i] != '-' && s[i] != '+')
 		{
-			ft_printf("ERROR\n");
+			ft_printf("Error\n");
 			return (0);
 		}
 		if ((s[i] == '-' || s[i] == '+') && \
 		!(s[i + 1] >= '0' && s[i + 1] <= '9'))
 		{
-			ft_printf("ERROR\n");
+			ft_printf("Error\n");
 			return (0);
 		}
 		i++;
