@@ -6,7 +6,7 @@
 /*   By: mel-bouh <mel-bouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 22:58:05 by mel-bouh          #+#    #+#             */
-/*   Updated: 2024/05/18 17:02:02 by mel-bouh         ###   ########.fr       */
+/*   Updated: 2024/05/22 00:53:18 by mel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ int	ft_getnbr(t_swap *s)
 		{
 			if (s->nums[i] == s->nums[j])
 			{
-				free(s->nums);
-				return (ft_printf("Error\n"), 0);
+				ft_printf("Error\n");
+				return (free(s->nums), 0);
 			}
 			j++;
 		}

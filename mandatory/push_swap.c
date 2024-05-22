@@ -6,7 +6,7 @@
 /*   By: mel-bouh <mel-bouh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:39:24 by mel-bouh          #+#    #+#             */
-/*   Updated: 2024/05/20 22:30:19 by mel-bouh         ###   ########.fr       */
+/*   Updated: 2024/05/22 00:52:04 by mel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,31 @@ void	algorithm(t_swap *s)
 int	fillstruct(t_swap *s)
 {
 	if (!ft_checkchar(s->join))
-		return (free(s->join), 0);
+		return (free(s->join), ft_printf("Error\n"), 0);
 	s->counter = count_words(s->join, ' ');
 	if (s->counter <= 1)
 		return (free(s->join), 0);
 	s->split = ft_split(s, ' ');
 	if (!s->split)
-		return (ft_printf("Error\n"));
+		return (ft_printf("Error\n"), 0);
 	if (ft_checknums(s->split, s->counter))
+	{
+		ft_printf("Error\n");
 		return (ft_free((void **)s->split, s->counter), 0);
+	}
 	if (!ft_getnbr(s) || !order(s->nums, s->counter))
+		return (0);
+	return (1);
+}
+
+int	checkarg(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] == ' ')
+		i++;
+	if (!s[i])
 		return (0);
 	return (1);
 }
@@ -98,10 +113,10 @@ int	main(int ac, char **av)
 	while (i < ac)
 	{
 		s.join = ft_strjoin(s.join, av[i]);
-		if (!s.join || !av[i++][0])
+		if (!s.join || !checkarg(av[i++]))
 		{
-			ft_printf("ERROR\n");
-			return (free(s.join), 0);
+			ft_printf("Error\n");
+			return (free(s.join), 1);
 		}
 	}
 	if (!fillstruct(&s))
